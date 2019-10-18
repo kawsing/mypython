@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import codecs
 import json
 #讀取資料
 with open("config.json", mode="r") as file:
@@ -11,4 +12,8 @@ print(info["career"])
 info["favorite"]="Computer"
 print(info)
 with open("config.json", mode="w") as file:
-    json.dump(info, file)
+    json.dump(info, file, ensure_ascii=False)
+
+with open("config.json", mode="r") as file:
+    newdata=json.load(file)
+print(newdata["favorite"])
